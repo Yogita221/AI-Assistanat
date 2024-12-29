@@ -6,6 +6,9 @@ recognition.Lang = "en-US"
 const btn = document.querySelector(".listen-btn")
 btn.addEventListener("click", ()=> {
 
+
+    // recognition.start()
+
     //Convert text to voice
 
     function speak (text) {
@@ -30,13 +33,41 @@ btn.addEventListener("click", ()=> {
            window.open("https://www.instagram.com", "_blank")
             
         }
+        else if (command.includes("open whatsapp")) {
+            speak("Opening whatsapp...")
+           window.open("https://www.whatsapp.com", "_blank")
+            
+        }
+        else if (command.includes("open google")) {
+            speak("Opening google...")
+           window.open("https://www.google.com", "_blank")
+            
+        }
+        
         else{
-            speak("search on Youtube")
+            speak("search on Google.....")
+            window.open(`https://www.google.com/search?q={command}`,"_blank")
         }
         
         
     }
     speak("Hello, how can I help you")
-    recognition.onresult
+
+    setTimeout(()=>{
+        btn.innerHTML = "Listening..."
+        btn.style.backgroundColor = "red"
+      recognition.start();  
+    }, 2000);
+   
+    recognition.onresult= (event) =>{
+        const command = event.results[0][0].transcript.toLowerCase()
+        handleCommands(command)
+
+    };
+    recognition.onend = ()=> {
+        btn.innerHTML = "Start Listening"
+        btn.style.backgroundColor = "#4CAF50"
+
+    }
 
 })
