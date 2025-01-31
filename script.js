@@ -7,9 +7,6 @@ const btn = document.querySelector(".listen-btn")
 btn.addEventListener("click", ()=> {
 
 
-    // recognition.start()
-
-    //Convert text to voice
 
     function speak (text) {
         const abc = new SpeechSynthesisUtterance(text)
