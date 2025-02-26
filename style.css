@@ -32,17 +32,19 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 600px;
     
     
 
 }
 .card h1{
     color: #fff;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: 900; 
     letter-spacing: 2px;
     font-family: sans-serif;
     text-transform: uppercase;
+    text-align: center;
 }
 .card p{
     color: #ffa500 ;
